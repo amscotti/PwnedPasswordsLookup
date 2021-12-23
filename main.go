@@ -35,8 +35,8 @@ func (h *PasswordHash) lookupPassword() (bool, error) {
 
 	hashes := strings.Split(string(data), "\n")
 	for _, hash := range hashes {
-		parts := strings.Split(hash, ":")
-		if parts[0] == strings.ToUpper(h.suffix) {
+		suffix := strings.Split(hash, ":")[0]
+		if suffix == strings.ToUpper(h.suffix) {
 			return true, nil
 		}
 	}
