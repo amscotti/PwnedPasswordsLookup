@@ -7,7 +7,6 @@ import (
 	"io"
 	"log"
 	"net/http"
-	"os"
 	"strings"
 	"syscall"
 
@@ -63,13 +62,11 @@ func main() {
 	hash, err := getPassword()
 	if err != nil {
 		log.Fatal(err)
-		os.Exit(1)
 	}
 
 	found, err := hash.lookupPassword()
 	if err != nil {
 		log.Fatal(err)
-		os.Exit(1)
 	}
 
 	if found {
